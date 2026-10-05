@@ -22,8 +22,8 @@ An ultra-modern, interactive 3D developer portfolio engineered with Three.js, We
 
 ## 🚀 Live Demo & Deployment
 
-- **GitHub Pages:** `https://khushi2008hc-lab.github.io`
-- **Vercel:** `https://vercel.com/new?teamSlug=khushi`
+- **Live on Vercel:** [https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app](https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app)
+- **Live on GitHub Pages:** [https://khushi2008hc-lab.github.io/portfolio/](https://khushi2008hc-lab.github.io/portfolio/)
 
 ---
 
