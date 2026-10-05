@@ -2,9 +2,29 @@
 
 An ultra-modern, interactive 3D developer portfolio engineered with Three.js, WebGL, vanilla CSS3 glassmorphism, and an in-browser SQL query execution engine.
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new?teamSlug=khushi)
-[![GitHub Profile](https://img.shields.io/badge/GitHub-khushi2008hc--lab-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/khushi2008hc-lab)
-[![License: MIT](https://img.shields.io/badge/License-MIT-00F5D4?style=for-the-badge)](LICENSE)
+<p align="center">
+  <a href="https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_Live_Demo-Visit_Vercel_App-00F5D4?style=for-the-badge&logo=vercel&logoColor=black" alt="Live Demo on Vercel" />
+  </a>
+  <a href="https://khushi2008hc-lab.github.io/portfolio/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_GitHub_Pages-Visit_Site-7928CA?style=for-the-badge&logo=github&logoColor=white" alt="Live on GitHub Pages" />
+  </a>
+  <a href="https://github.com/khushi2008hc-lab" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-khushi2008hc--lab-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-00F5D4?style=for-the-badge" alt="License: MIT" />
+  </a>
+</p>
+
+---
+
+## 🚀 Live Deployed Links
+
+| Platform | Live Link | Status |
+| :--- | :--- | :--- |
+| **▲ Vercel Production** | [portfolio-nine-alpha-m0jhu0c4o1.vercel.app](https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app) | 🟢 Active & Deployed |
+| **🌐 GitHub Pages** | [khushi2008hc-lab.github.io/portfolio](https://khushi2008hc-lab.github.io/portfolio/) | 🟢 Active & Deployed |
 
 ---
 
@@ -20,13 +40,6 @@ An ultra-modern, interactive 3D developer portfolio engineered with Three.js, We
 
 ---
 
-## 🚀 Live Demo & Deployment
-
-- **Live on Vercel:** [https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app](https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app)
-- **Live on GitHub Pages:** [https://khushi2008hc-lab.github.io/portfolio/](https://khushi2008hc-lab.github.io/portfolio/)
-
----
-
 ## 🛠️ Tech Stack
 
 - **Core:** HTML5, Modern Vanilla JavaScript (ES6+)
@@ -34,3 +47,12 @@ An ultra-modern, interactive 3D developer portfolio engineered with Three.js, We
 - **3D Graphics:** Three.js (WebGL)
 - **Audio:** Web Audio API Procedural Synthesis
 - **Deployment:** GitHub Pages & Vercel
+
+---
+
+## 👤 Author & Developer
+
+**Khushi**  
+- **GitHub:** [@khushi2008hc-lab](https://github.com/khushi2008hc-lab)  
+- **Email:** `khushi2008.hc@gmail.com`  
+- **Portfolio:** [Khushi.dev](https://portfolio-nine-alpha-m0jhu0c4o1.vercel.app)
