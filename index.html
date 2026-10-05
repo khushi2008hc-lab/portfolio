@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khushi | Full Stack Developer & Software Engineer</title>
+  <meta name="description" content="Portfolio of Khushi - Full Stack Developer, Software Engineer & SQL Specialist. Interactive 3D web experience, live projects, and interactive SQL playground.">
+  <meta name="keywords" content="Khushi, Portfolio, Full Stack Developer, Software Engineer, SQL, React, Python, Web Development">
+  <meta name="author" content="Khushi">
+
+  <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="Khushi | Full Stack Developer & Software Engineer">
+  <meta property="og:description" content="Explore my interactive 3D portfolio, featured projects, and live in-browser SQL playground.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/avatar.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-theme="cyan">
+
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Custom Cursor Glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-bracket">&lt;</span>
+        <span class="brand-name">Khushi</span>
+        <span class="brand-accent">.dev</span>
+        <span class="brand-bracket"> /&gt;</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> About</a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group"></i> Skills</a>
+        <a href="#projects" class="nav-link"><i class="fa-solid fa-cube"></i> 3D Projects</a>
+        <a href="#sql-playground" class="nav-link"><i class="fa-solid fa-database"></i> SQL Lab</a>
+        <a href="#experience" class="nav-link"><i class="fa-solid fa-timeline"></i> Journey</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- SFX Toggle -->
+        <button id="sfx-toggle" class="icon-btn" title="Toggle Sound FX" aria-label="Toggle Sound Effects">
+          <i class="fa-solid fa-volume-high" id="sfx-icon"></i>
+        </button>
+
+        <!-- Theme Accent Switcher -->
+        <div class="theme-palette" title="Change Theme Accent">
+          <button class="palette-dot active" data-color="cyan" style="--dot-color: #00f5d4;" aria-label="Cyan Accent"></button>
+          <button class="palette-dot" data-color="purple" style="--dot-color: #a855f7;" aria-label="Purple Accent"></button>
+          <button class="palette-dot" data-color="pink" style="--dot-color: #ff007f;" aria-label="Pink Accent"></button>
+          <button class="palette-dot" data-color="emerald" style="--dot-color: #10b981;" aria-label="Emerald Accent"></button>
+        </div>
+
+        <a href="#contact" class="btn btn-sm btn-primary">Hire Me</a>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-status">
+          <span class="pulse-indicator"></span>
+          <span>Open to Opportunities & Collaborations</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Khushi</span><br>
+          <span class="typing-container">
+            <span class="typing-text" id="typing-text"></span><span class="cursor">&nbsp;</span>
+          </span>
+        </h1>
+
+        <p class="hero-description">
+          Architecting robust full-stack applications, scalable database systems, and visually extraordinary 3D web experiences with modern engineering standards.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-rocket"></i> Explore Work
+          </a>
+          <a href="#sql-playground" class="btn btn-secondary">
+            <i class="fa-solid fa-terminal"></i> Interactive SQL Lab
+          </a>
+          <button id="resume-modal-btn" class="btn btn-outline">
+            <i class="fa-solid fa-file-invoice"></i> View Resume
+          </button>
+        </div>
+
+        <div class="hero-socials">
+          <span class="social-label">Connect:</span>
+          <a href="https://github.com/khushi2008hc-lab" target="_blank" rel="noopener" class="social-pill" title="GitHub">
+            <i class="fa-brands fa-github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://vercel.com/new?teamSlug=khushi" target="_blank" rel="noopener" class="social-pill" title="Vercel">
+            <i class="fa-solid fa-play"></i> <span>Vercel</span>
+          </a>
+          <a href="mailto:khushi2008.hc@gmail.com" class="social-pill" title="Email">
+            <i class="fa-solid fa-envelope"></i> <span>Email</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i> <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3D Interactive Card Showcase -->
+      <div class="hero-visual">
+        <div class="card-3d-wrapper" id="hero-3d-card">
+          <div class="card-3d">
+            <div class="card-glow-reflection"></div>
+            <div class="avatar-frame">
+              <img src="assets/images/avatar.jpg" alt="Khushi - Full Stack Developer Avatar" class="avatar-img">
+              <div class="avatar-ring"></div>
+            </div>
+
+            <div class="card-3d-content">
+              <div class="badge-role">Full Stack &amp; SQL Specialist</div>
+              <h2 class="card-name">Khushi</h2>
+              <p class="card-bio">Passionate engineer transforming high-complexity challenges into scalable, elegant code.</p>
+
+              <div class="card-tags">
+                <span class="tag">#FullStack</span>
+                <span class="tag">#SQL_Architect</span>
+                <span class="tag">#ThreeJS</span>
+                <span class="tag">#CleanCode</span>
+              </div>
+            </div>
+
+            <!-- Floating 3D Micro-Badges -->
+            <div class="floating-badge badge-top-right">
+              <i class="fa-solid fa-bolt text-accent"></i>
+              <span>High Performance</span>
+            </div>
+            <div class="floating-badge badge-bottom-left">
+              <i class="fa-solid fa-database text-accent"></i>
+              <span>SQL &amp; Scalability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-down-prompt">
+      <a href="#about" aria-label="Scroll to about section">
+        <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+        <span class="prompt-text">Scroll Down</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section (Bento Grid) -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-fingerprint"></i> About Me</span>
+        <h2 class="section-title">Bridging <span class="gradient-text">Aesthetic Design</span> &amp; Powerful Systems</h2>
+        <p class="section-subtitle">A glimpse into my mindset, engineering philosophy, and passion for excellence.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Card 1: My Story -->
+        <div class="bento-card bento-span-2 tilt-card">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="bento-title">Full-Stack Craftsmanship</h3>
+          <p class="bento-text">
+            I love designing complete software solutions from the ground up — from responsive, pixel-perfect user interfaces to high-throughput REST APIs and finely tuned relational SQL schemas.
+          </p>
+          <div class="code-snippet-box">
+            <code><span class="code-kw">const</span> <span class="code-var">developer</span> = {<br>
+            &nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-str">'Khushi'</span>,<br>
+            &nbsp;&nbsp;<span class="code-prop">focus</span>: [<span class="code-str">'Full Stack'</span>, <span class="code-str">'SQL Architecture'</span>, <span class="code-str">'Modern UI'</span>],<br>
+            &nbsp;&nbsp;<span class="code-prop">relentlessCuriosity</span>: <span class="code-bool">true</span><br>
+            };</code>
+          </div>
+        </div>
+
+        <!-- Card 2: Interactive Stats -->
+        <div class="bento-card tilt-card">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3 class="bento-title">Impact by Numbers</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Dedication</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="99">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Clean Code Score</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="24">0</span><span class="stat-plus">/7</span>
+              <span class="stat-label">Continuous Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Database & SQL Focus -->
+        <div class="bento-card tilt-card">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <h3 class="bento-title">Database Engineering</h3>
+          <p class="bento-text">
+            Specialized in relational database design with MySQL and PostgreSQL. Proficient in indexing, normalization, transaction management, and writing complex analytical queries.
+          </p>
+          <div class="badge-row">
+            <span class="mini-pill">MySQL 8.4</span>
+            <span class="mini-pill">PostgreSQL</span>
+            <span class="mini-pill">Schema Design</span>
+            <span class="mini-pill">ACID Compliance</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Location & Status -->
+        <div class="bento-card bento-span-2 tilt-card">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h3 class="bento-title">Global Ready &amp; Collaborative</h3>
+          <p class="bento-text">
+            Based in India 🇮🇳 with full readiness to collaborate with distributed teams, innovative tech startups, and forward-thinking companies worldwide.
+          </p>
+          <div class="features-row">
+            <div class="feature-item"><i class="fa-solid fa-circle-check text-accent"></i> Version Control &amp; Git Flow</div>
+            <div class="feature-item"><i class="fa-solid fa-circle-check text-accent"></i> Agile &amp; Rapid Prototyping</div>
+            <div class="feature-item"><i class="fa-solid fa-circle-check text-accent"></i> CI/CD with Vercel &amp; GitHub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section with 3D Category Matrix -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-shapes"></i> Arsenal</span>
+        <h2 class="section-title">Skills &amp; <span class="gradient-text">Technologies</span></h2>
+        <p class="section-subtitle">Tools and frameworks I leverage to create high-performing digital experiences.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs" id="skill-filters">
+        <button class="filter-tab active" data-category="all">All Tech</button>
+        <button class="filter-tab" data-category="languages">Languages</button>
+        <button class="filter-tab" data-category="frontend">Frontend</button>
+        <button class="filter-tab" data-category="backend">Backend &amp; SQL</button>
+        <button class="filter-tab" data-category="tools">Tools &amp; DevOps</button>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="skills-grid" id="skills-grid">
+        <!-- Python -->
+        <div class="skill-card tilt-card" data-category="languages">
+          <div class="skill-icon text-cyan"><i class="fa-brands fa-python"></i></div>
+          <h4 class="skill-title">Python</h4>
+          <span class="skill-category">Backend &amp; Logic</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 90%;"></div>
+          </div>
+          <span class="skill-percentage">90%</span>
+        </div>
+
+        <!-- SQL -->
+        <div class="skill-card tilt-card" data-category="languages backend">
+          <div class="skill-icon text-accent"><i class="fa-solid fa-database"></i></div>
+          <h4 class="skill-title">SQL (MySQL / Postgres)</h4>
+          <span class="skill-category">Relational Databases</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 92%;"></div>
+          </div>
+          <span class="skill-percentage">92%</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card tilt-card" data-category="languages frontend">
+          <div class="skill-icon text-yellow"><i class="fa-brands fa-js"></i></div>
+          <h4 class="skill-title">JavaScript (ES6+)</h4>
+          <span class="skill-category">Frontend &amp; Async</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 88%;"></div>
+          </div>
+          <span class="skill-percentage">88%</span>
+        </div>
+
+        <!-- React -->
+        <div class="skill-card tilt-card" data-category="frontend">
+          <div class="skill-icon text-cyan"><i class="fa-brands fa-react"></i></div>
+          <h4 class="skill-title">React.js</h4>
+          <span class="skill-category">Modern UI Components</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 85%;"></div>
+          </div>
+          <span class="skill-percentage">85%</span>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-card tilt-card" data-category="backend">
+          <div class="skill-icon text-emerald"><i class="fa-brands fa-node-js"></i></div>
+          <h4 class="skill-title">Node.js &amp; Express</h4>
+          <span class="skill-category">Server Architecture</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 84%;"></div>
+          </div>
+          <span class="skill-percentage">84%</span>
+        </div>
+
+        <!-- Three.js -->
+        <div class="skill-card tilt-card" data-category="frontend">
+          <div class="skill-icon text-purple"><i class="fa-solid fa-cube"></i></div>
+          <h4 class="skill-title">Three.js &amp; WebGL</h4>
+          <span class="skill-category">3D Graphics &amp; Canvas</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 80%;"></div>
+          </div>
+          <span class="skill-percentage">80%</span>
+        </div>
+
+        <!-- HTML5 & Modern CSS3 -->
+        <div class="skill-card tilt-card" data-category="frontend">
+          <div class="skill-icon text-pink"><i class="fa-brands fa-html5"></i></div>
+          <h4 class="skill-title">HTML5 &amp; CSS3</h4>
+          <span class="skill-category">Responsive Architecture</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 95%;"></div>
+          </div>
+          <span class="skill-percentage">95%</span>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="skill-card tilt-card" data-category="tools">
+          <div class="skill-icon text-accent"><i class="fa-brands fa-git-alt"></i></div>
+          <h4 class="skill-title">Git &amp; GitHub</h4>
+          <span class="skill-category">Version Control</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 89%;"></div>
+          </div>
+          <span class="skill-percentage">89%</span>
+        </div>
+
+        <!-- Vercel Deployment -->
+        <div class="skill-card tilt-card" data-category="tools">
+          <div class="skill-icon text-white"><i class="fa-solid fa-triangle-circle-square"></i></div>
+          <h4 class="skill-title">Vercel &amp; Cloud</h4>
+          <span class="skill-category">Serverless CI/CD</span>
+          <div class="skill-progress">
+            <div class="progress-bar" style="--progress: 88%;"></div>
+          </div>
+          <span class="skill-percentage">88%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Projects Showcase Section -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-cubes-stacked"></i> Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient-text">3D Showcases</span></h2>
+        <p class="section-subtitle">Real-world applications engineered for speed, aesthetics, and reliability.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: CloudSphere -->
+        <div class="project-card tilt-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/cloudsphere.jpg" alt="CloudSphere SQL Analytics Dashboard" class="project-img">
+            <div class="project-overlay">
+              <button class="project-action-btn view-details-btn" data-project="cloudsphere">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> View System Architecture
+              </button>
+            </div>
+            <div class="project-badge">Featured • SQL Engine</div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-category">Database &amp; Analytics</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">CloudSphere — SQL Analytics Engine</h3>
+            <p class="project-description">
+              A high-performance visual SQL database analytics engine offering live latency monitors, query throughput graphs, and automated schema optimization insights.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/khushi2008hc-lab" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+              <button class="btn btn-sm btn-primary view-details-btn" data-project="cloudsphere">
+                <i class="fa-solid fa-eye"></i> Live Walkthrough
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: DevConnect -->
+        <div class="project-card tilt-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/devconnect.jpg" alt="DevConnect Collaboration Hub" class="project-img">
+            <div class="project-overlay">
+              <button class="project-action-btn view-details-btn" data-project="devconnect">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> View System Architecture
+              </button>
+            </div>
+            <div class="project-badge">Featured • Real-Time</div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-category">Full Stack Platform</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">DevConnect — Real-Time Dev Hub</h3>
+            <p class="project-description">
+              Collaborative developer workspace equipped with real-time code synchronization, interactive team channels, PR review tracking, and developer activity analytics.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/khushi2008hc-lab" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+              <button class="btn btn-sm btn-primary view-details-btn" data-project="devconnect">
+                <i class="fa-solid fa-eye"></i> Live Walkthrough
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive In-Browser SQL Playground -->
+  <section class="section sql-section" id="sql-playground">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-terminal"></i> Live Demo</span>
+        <h2 class="section-title">Interactive <span class="gradient-text">In-Browser SQL Lab</span></h2>
+        <p class="section-subtitle">Test my SQL mastery live! Run queries on real in-memory tables directly in your browser.</p>
+      </div>
+
+      <div class="sql-terminal-card">
+        <!-- Terminal Header Bar -->
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">
+            <i class="fa-solid fa-database"></i> khushi_db@mysql-8.4:~$ query_runner
+          </div>
+          <div class="terminal-status">
+            <span class="status-indicator"></span> <span>Engine: ONLINE</span>
+          </div>
+        </div>
+
+        <div class="sql-workbench-layout">
+          <!-- Schema Explorer Sidebar -->
+          <div class="sql-sidebar">
+            <h4 class="sidebar-heading"><i class="fa-solid fa-folder-tree"></i> Database Tables</h4>
+            <ul class="table-list">
+              <li class="table-item" data-table="developer_profile">
+                <i class="fa-solid fa-table"></i> developer_profile
+              </li>
+              <li class="table-item" data-table="technical_skills">
+                <i class="fa-solid fa-table"></i> technical_skills
+              </li>
+              <li class="table-item" data-table="portfolio_projects">
+                <i class="fa-solid fa-table"></i> portfolio_projects
+              </li>
+              <li class="table-item" data-table="hire_khushi">
+                <i class="fa-solid fa-table"></i> hire_khushi
+              </li>
+            </ul>
+
+            <h4 class="sidebar-heading" style="margin-top: 1.5rem;"><i class="fa-solid fa-bolt"></i> Sample Queries</h4>
+            <div class="sample-queries">
+              <button class="sample-query-btn" data-query="SELECT * FROM developer_profile;">
+                Profile Info
+              </button>
+              <button class="sample-query-btn" data-query="SELECT skill_name, proficiency, category FROM technical_skills ORDER BY proficiency DESC;">
+                Top Skills
+              </button>
+              <button class="sample-query-btn" data-query="SELECT title, tech_stack, status FROM portfolio_projects WHERE status = 'COMPLETED';">
+                Live Projects
+              </button>
+              <button class="sample-query-btn" data-query="SELECT role, offer_status, contact_email FROM hire_khushi;">
+                Hire Query
+              </button>
+            </div>
+          </div>
+
+          <!-- Query Editor & Output -->
+          <div class="sql-main">
+            <div class="editor-header">
+              <span class="editor-label"><i class="fa-solid fa-code"></i> SQL Query Input</span>
+              <button id="run-sql-btn" class="btn btn-sm btn-primary">
+                <i class="fa-solid fa-play"></i> Run Query (Ctrl+Enter)
+              </button>
+            </div>
+
+            <textarea id="sql-input" class="sql-textarea" rows="4" spellcheck="false">SELECT * FROM developer_profile;</textarea>
+
+            <div class="query-stats-bar">
+              <span id="query-status-text"><i class="fa-solid fa-check text-accent"></i> Ready for execution</span>
+              <span id="query-exec-time">Execution Time: --</span>
+            </div>
+
+            <!-- Query Output Table -->
+            <div class="sql-results-wrapper">
+              <div id="sql-results-container">
+                <!-- Dynamically rendered table -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey / Timeline Section -->
+  <section class="section timeline-section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-road"></i> Milestones</span>
+        <h2 class="section-title">My Journey &amp; <span class="gradient-text">Evolution</span></h2>
+        <p class="section-subtitle">How passion and consistent execution shape my craft as a software engineer.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Milestone 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content tilt-card">
+            <span class="timeline-date">2026 • Present</span>
+            <h3 class="timeline-title">Full-Stack &amp; SQL Database Architect</h3>
+            <p class="timeline-desc">
+              Building comprehensive cloud-ready web applications, modern responsive UI systems, and integrating MySQL Server 8.4 database architectures for production workflows.
+            </p>
+            <div class="timeline-tags">
+              <span>Full Stack</span> <span>MySQL</span> <span>Three.js</span> <span>Vercel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content tilt-card">
+            <span class="timeline-date">2025 • Evolution</span>
+            <h3 class="timeline-title">Backend Architecture &amp; REST APIs</h3>
+            <p class="timeline-desc">
+              Engineered robust backend services with Node.js and Python. Mastered database schema normalization, transaction consistency, and asynchronous programming.
+            </p>
+            <div class="timeline-tags">
+              <span>Node.js</span> <span>Python</span> <span>RESTful APIs</span> <span>Database Normalization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content tilt-card">
+            <span class="timeline-date">Foundations</span>
+            <h3 class="timeline-title">Algorithms, Core Computer Science &amp; UI</h3>
+            <p class="timeline-desc">
+              Built foundational mastery over data structures, algorithms, semantic HTML5, modern CSS3 layout engines (Flexbox &amp; Grid), and vanilla JavaScript.
+            </p>
+            <div class="timeline-tags">
+              <span>Data Structures</span> <span>Algorithms</span> <span>JavaScript</span> <span>UI/UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Hire Me Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-handshake"></i> Get In Touch</span>
+        <h2 class="section-title">Let's Build Something <span class="gradient-text">Extraordinary</span></h2>
+        <p class="section-subtitle">Have a project in mind, an open position, or just want to connect? My inbox is always open.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info Cards -->
+        <div class="contact-info">
+          <div class="contact-card tilt-card">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-details">
+              <h4>Direct Email</h4>
+              <p id="email-address">khushi2008.hc@gmail.com</p>
+              <button id="copy-email-btn" class="btn btn-xs btn-outline">
+                <i class="fa-solid fa-copy"></i> Copy to Clipboard
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-card tilt-card">
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-details">
+              <h4>GitHub Profile</h4>
+              <p>@khushi2008hc-lab</p>
+              <a href="https://github.com/khushi2008hc-lab" target="_blank" rel="noopener" class="btn btn-xs btn-outline">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card tilt-card">
+            <div class="contact-icon"><i class="fa-solid fa-triangle-circle-square"></i></div>
+            <div class="contact-details">
+              <h4>Vercel Deployments</h4>
+              <p>khushi team</p>
+              <a href="https://vercel.com/new?teamSlug=khushi" target="_blank" rel="noopener" class="btn btn-xs btn-outline">
+                <i class="fa-solid fa-play"></i> Open Vercel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="contact-form-wrapper tilt-card">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" required placeholder="e.g. Alex Johnson" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" required placeholder="alex@example.com" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" required placeholder="Project Collaboration / Opportunity" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="4" required placeholder="Hi Khushi, I loved your portfolio and would like to discuss..." class="form-input"></textarea>
+            </div>
+
+            <button type="submit" id="send-msg-btn" class="btn btn-primary btn-block btn-glow">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+            <div id="form-feedback" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Project Details Modal -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-content" class="modal-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Resume Preview Modal -->
+  <div id="resume-modal" class="modal-backdrop">
+    <div class="modal-dialog resume-dialog">
+      <button class="modal-close-btn" id="resume-modal-close" aria-label="Close resume modal">&times;</button>
+      <div class="resume-body">
+        <div class="resume-header">
+          <div>
+            <h2 class="resume-name">Khushi</h2>
+            <p class="resume-subtitle">Full Stack Developer &amp; Software Engineer</p>
+          </div>
+          <button onclick="window.print()" class="btn btn-sm btn-primary">
+            <i class="fa-solid fa-print"></i> Print / Save PDF
+          </button>
+        </div>
+        <hr class="resume-divider">
+        <div class="resume-section">
+          <h3>Professional Summary</h3>
+          <p>Passionate, detail-oriented Full Stack Developer with strong competencies in modern web applications, relational SQL architectures (MySQL / PostgreSQL), and responsive UI engineering.</p>
+        </div>
+        <div class="resume-section">
+          <h3>Technical Skills</h3>
+          <p><strong>Languages:</strong> Python, JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3</p>
+          <p><strong>Frameworks &amp; Libraries:</strong> React.js, Next.js, Node.js, Express, Three.js</p>
+          <p><strong>Databases:</strong> MySQL 8.4, PostgreSQL, SQLite</p>
+          <p><strong>Platforms &amp; Tools:</strong> Git, GitHub, Vercel, VS Code, Postman, Linux</p>
+        </div>
+        <div class="resume-section">
+          <h3>Featured Projects</h3>
+          <p><strong>CloudSphere SQL Engine:</strong> Interactive database telemetry and query analytics platform.</p>
+          <p><strong>DevConnect Collaboration Hub:</strong> Real-time developer workspace with collaborative channels and code reviewer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-brand">&lt;Khushi.dev /&gt;</span>
+        <p class="footer-copy">Crafted with precision, passion, and modern 3D web technologies. &copy; 2026 Khushi. All rights reserved.</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/khushi2008hc-lab" target="_blank" rel="noopener" class="footer-link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://vercel.com/new?teamSlug=khushi" target="_blank" rel="noopener" class="footer-link"><i class="fa-solid fa-play"></i></a>
+        <a href="mailto:khushi2008.hc@gmail.com" class="footer-link"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#hero" class="back-to-top-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Three.js from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Three.js 3D Background & Particle Cosmos -->
+  <script src="assets/js/three-scene.js"></script>
+  <!-- Interactive SQL Database Engine -->
+  <script src="assets/js/sql-playground.js"></script>
+  <!-- Main Interactive Controllers & 3D Tilt -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
